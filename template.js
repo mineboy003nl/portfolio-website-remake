@@ -49,20 +49,3 @@ for (let i = 0; i < navItems.length; i++) {
         }
     });
 }
-
-
-const dropDowns = document.getElementsByClassName("dropMenu")
-
-for (let i = 0; i < dropDowns.length; i++){
-    var dropDown = dropDowns[i]
-    var menuButtons = dropDown.getElementsByTagName("a")
-    for (let j = 0; j < menuButtons.length; j++) {
-        menuButton = menuButtons[j]
-        menuButton.addEventListener("mousedown", function(){
-            this.classList.add("click")
-        })
-        menuButton.addEventListener("mouseup", function(){
-            this.classList.remove("click")
-        })
-    }
-}

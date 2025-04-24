@@ -54,6 +54,7 @@ nav{
     width: calc(100% - 3em);
     height: 8vh;
     background-color: var(--g_500);
+    color: var(--g_50);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -61,7 +62,7 @@ nav{
     padding: 0 1.5em;
 }
 
-/**-----navbar-standaard-----*/
+/**-----navbar-standard-----*/
 .navItem{
     all: unset;
     color: var(--g_50);
@@ -72,7 +73,7 @@ nav{
     position: relative;
 }
 
-.navItem i::before{
+nav i::before{
     font-size: 42px;
 }
 
@@ -84,7 +85,7 @@ nav{
     transition: 0.3s ease-in-out;
 }
 
-.navItem.button::after{
+.navItem:not(.dropDown)::after{
     content: "";
     width: 0%;
     height: 5px;
@@ -125,9 +126,45 @@ nav{
     color: var(--y_50);
 }
 
+.logo{
+    margin-left: auto;
+}
+
+.logoBoxCircle{
+    height: 42px;
+    width: auto;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoBoxSquare{
+    height: 42px;
+    width: auto;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoBoxCircle img{
+    height: 100%;
+    width: auto;
+}
+
+.logoBoxSquare img{
+    height: 100%;
+    width: auto;
+}
+
 
 /**-----navbar-active-----*/
-.navItem.button.active::after{
+.navItem:not(.dropDown).active::after{
     background-color: var(--p_500);
     width: 100%;
 }
@@ -146,13 +183,18 @@ nav{
     box-shadow: 2px 2px 2px var(--p_900) inset, -2px -2px 2px var(--p_300) inset;
 }
 
-/**-----navbar-animation-----*/
+/**-----navbar-animations-----*/
 .navItem.extend span{
     max-width: 120px;
     margin-right: 0.2em;
 }
 
-.navItem.button.extend::after{
+.navItem.extend span.long{
+    max-width: 300px;
+    margin-right: 0.2em;
+}
+
+.navItem:not(.dropDown).extend::after{
     width: 100%;
 }
 
@@ -175,7 +217,7 @@ nav{
     transition: 0.1s ease-in-out;
 }
 
-.navItem.dropDown .dropMenu a.click{
+.navItem.dropDown .dropMenu a:active{
     box-shadow: 2px 2px 2px var(--y_900) inset, -2px -2px 2px var(--y_300) inset;
     transition: 0.1s ease-in-out;
 }
@@ -185,7 +227,7 @@ nav{
     transition: 0.1s ease-in-out;
 }
 
-.navItem.dropDown.active .dropMenu a.click{
+.navItem.dropDown.active .dropMenu a:active{
     box-shadow: 2px 2px 2px var(--p_900) inset, -2px -2px 2px var(--p_300) inset;
     transition: 0.1s ease-in-out;
 }
