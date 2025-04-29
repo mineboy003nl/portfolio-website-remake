@@ -48,11 +48,12 @@
 
 body{
     width: 100vw;
+    height: 100vh;
 }
     
-nav{
+nav.head{
     width: calc(100% - 3em);
-    height: 8vh;
+    height: 8%;
     background-color: var(--g_500);
     color: var(--g_50);
     display: flex;
@@ -65,7 +66,6 @@ nav{
 /**-----navbar-standard-----*/
 .navItem{
     all: unset;
-    color: var(--g_50);
     height: 70%;
     display: flex;
     justify-content: center;
@@ -73,7 +73,7 @@ nav{
     position: relative;
 }
 
-nav i::before{
+nav.head i::before{
     font-size: 42px;
 }
 
@@ -162,6 +162,11 @@ nav i::before{
     width: auto;
 }
 
+.svgLogo{
+    height: 42px;
+    width: auto;
+}
+
 
 /**-----navbar-active-----*/
 .navItem:not(.dropDown).active::after{
@@ -190,7 +195,7 @@ nav i::before{
 }
 
 .navItem.extend span.long{
-    max-width: 300px;
+    max-width: 240px;
     margin-right: 0.2em;
 }
 
@@ -230,4 +235,36 @@ nav i::before{
 .navItem.dropDown.active .dropMenu a:active{
     box-shadow: 2px 2px 2px var(--p_900) inset, -2px -2px 2px var(--p_300) inset;
     transition: 0.1s ease-in-out;
+}
+
+.carousel{
+    width: 100%;
+    height: 92%;
+    position: relative;
+
+    background-image: url(media/test/achtergrond.webp);
+}
+
+.carouselContainer{
+    height: 50%;
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-x: hidden;
+
+    background-color: greenyellow;
+}
+
+.carouselContainer div{
+    height: 90%;
+    width: auto;
+    aspect-ratio: 1/1.5;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s ease-in-out;
+
+    background-color: chocolate;
 }

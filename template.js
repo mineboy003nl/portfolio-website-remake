@@ -43,9 +43,29 @@ for (let i = 0; i < navItems.length; i++) {
                 if (activeDropdown === this) {
                     activeDropdown = null
                 }
-            }, 350);
+            }, 350)
         } else {
             this.classList.remove("extend")
         }
     });
 }
+
+
+const carousels = document.getElementsByClassName("carouselContainer")
+
+var eenAndereNaam = 3
+
+function carouselWorkings(selectedItem){
+    for (let i = 0; i < carousels.length; i++) {
+        let carousel = carousels[i]
+    
+        let carouselItems = carousel.getElementsByTagName("div")
+        for (let j = 0; j < carouselItems.length; j++){
+            let carouselItem = carouselItems[j]
+    
+            carouselItem.style.left=`${50+(25*(j-(selectedItem-1)))}%`
+        }
+    }
+}
+
+carouselWorkings(eenAndereNaam)
