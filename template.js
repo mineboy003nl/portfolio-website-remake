@@ -1,12 +1,12 @@
 
+//*navbar----------------------------------------------------------------------
 const navItems = document.getElementsByClassName("navItem")
-
 let activeDropdown = null
 
 for (let i = 0; i < navItems.length; i++) {
     let navItem = navItems[i]
 
-    navItem.addEventListener("mouseenter", function () {
+    navItem.addEventListener("mouseenter", function() {
         if (activeDropdown && activeDropdown !== this) {
             activeDropdown.classList.remove("drop")
             setTimeout(() => {
@@ -30,7 +30,7 @@ for (let i = 0; i < navItems.length; i++) {
         }
     });
 
-    navItem.addEventListener("mouseleave", function () {
+    navItem.addEventListener("mouseleave", function() {
         if (this.classList.contains("dropDown")) {
             this.classList.remove("drop")
             setTimeout(() => {
@@ -50,22 +50,85 @@ for (let i = 0; i < navItems.length; i++) {
     });
 }
 
+//*carousel--------------------------------------------------------------------
+class carouselWorkings{
+    selectedItem = null
+    carousel = null
+    items = null
+    spacing = 35
+    constructor(id){
+        this.carousel =  id
+        this.items = this.carousel.getElementsByClassName("carouselItem")
+        this.selectedItem = Math.ceil(this.items.length / 2 - 1)
+        this.rotateCarousel()
+    }
+    rotateCarousel(){
+        for (let i = 0; i < this.items.length; i++){
+            let item = this.items[i]
+
+            item.style.left = `${50+(this.spacing*(i-(this.selectedItem)))}%`
+        }
+    }
+    plus(){
+        if (this.selectedItem + 1 == this.items.length){
+            return this.selectedItem
+        }
+        this.selectedItem += 1
+        this.rotateCarousel()
+        return this.selectedItem
+    }
+    min(){
+        if(this.selectedItem - 1 == -1){
+            return this.selectedItem
+        }
+        this.selectedItem -= 1
+        this.rotateCarousel()
+        return this.selectedItem
+    }
+    set(index){
+        this.selectedItem = index
+        this.rotateCarousel()
+        return this.selectedItem
+    }
+}
 
 const carousels = document.getElementsByClassName("carouselContainer")
+const carouselList = new Map()
 
-var eenAndereNaam = 3
+for (let i = 0; i < carousels.length; i++){
+    let carousel = carousels[i]
 
-function carouselWorkings(selectedItem){
-    for (let i = 0; i < carousels.length; i++) {
-        let carousel = carousels[i]
+    let id = carousel.id
+
+    carouselList.set(`${id}`, new carouselWorkings(carousel))
+}
+
+
+//selector-menu----------------------------------------------------------------
+const carouselSections = document.getElementsByClassName("carousel")
+
+function selecterView(){
+    for (let i = 0; i < carouselSections.length; i++){
+        let carouselSection = carouselSections[i]
     
-        let carouselItems = carousel.getElementsByTagName("div")
-        for (let j = 0; j < carouselItems.length; j++){
-            let carouselItem = carouselItems[j]
+        let selectors = carouselSection.getElementsByClassName("selector")
+        for (let i = 0; i < selectors.length; i++){
+            let selector = selectors[i]
     
-            carouselItem.style.left=`${50+(25*(j-(selectedItem-1)))}%`
+            let selectorButtons = selector.getElementsByTagName("button")
+            for (let i = 0; i < selectorButtons.length; i++){
+                let selectorButton = selectorButtons[i]
+                let index = i
+                let id = selectorButton.classList
+    
+                if (carouselList.get(`${id}`).selectedItem == index){
+                    selectorButton.style.aspectRatio = "2/1"
+                }else{
+                    selectorButton.style.aspectRatio = "1/1"
+                }
+            }
         }
     }
 }
 
-carouselWorkings(eenAndereNaam)
+selecterView()

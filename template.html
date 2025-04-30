@@ -74,47 +74,32 @@
     </nav>
 
     <section class="carousel">
-        <div class="carouselContainer">
-            <button onclick="eenAndereNaam-=1; carouselWorkings(eenAndereNaam)"><</button>
-            <div>
+        <button onclick="carouselList.get('aaaa').plus()"><i class="bi bi-arrow-bar-left"></i></button>
+        <nav class="selector">
+            <button onclick="carouselList.get('aaaa').set(0); selecterView()" class="aaaa"></button>
+            <button onclick="carouselList.get('aaaa').set(1); selecterView()" class="aaaa"></button>
+            <button onclick="carouselList.get('aaaa').set(2); selecterView()" class="aaaa"></button>
+            <button onclick="carouselList.get('aaaa').set(3); selecterView()" class="aaaa"></button>
+            <button onclick="carouselList.get('aaaa').set(4); selecterView()" class="aaaa"></button>
+        </nav>
+        <div class="carouselContainer" id="aaaa">
+            <div class="carouselItem">
 
             </div>
-            <div>
+            <div class="carouselItem">
 
             </div>
-            <div>
+            <div class="carouselItem">
 
             </div>
-            <div>
+            <div class="carouselItem">
 
             </div>
-            <div>
+            <div class="carouselItem">
 
             </div>
-            <button onclick="eenAndereNaam+=1; carouselWorkings(eenAndereNaam)">></button>
         </div>
-    </section>
-
-    <section class="carousel">
-        <div class="carouselContainer">
-            <button onclick="eenAndereNaam-=1; carouselWorkings(eenAndereNaam)"><</button>
-            <div>
-
-            </div>
-            <div>
-
-            </div>
-            <div>
-
-            </div>
-            <div>
-
-            </div>
-            <div>
-
-            </div>
-            <button onclick="eenAndereNaam+=1; carouselWorkings(eenAndereNaam)">></button>
-        </div>
+        <button onclick="carouselList.get('aaaa').min()"><i class="bi bi-arrow-bar-right"></i></button>
     </section>
 
 </body>
