@@ -106,10 +106,24 @@ for (let i = 0; i < carousels.length; i++){
 
 //selector-menu----------------------------------------------------------------
 const carouselSections = document.getElementsByClassName("carousel")
+var removeIndexClass = null
+
+function switchBackground(item) {
+    if (item.classList.contains("before")){
+        item.classList.remove("before")
+        item.classList.add("after")
+    }else if (item.classList.contains("after")){
+        item.classList.remove("after")
+        item.classList.add("before")
+    }else{
+        item.classList.add("after")
+    }
+}
 
 function selecterView(){
     for (let i = 0; i < carouselSections.length; i++){
         let carouselSection = carouselSections[i]
+        let id = carouselSection.classList[1]
     
         let selectors = carouselSection.getElementsByClassName("selector")
         for (let i = 0; i < selectors.length; i++){
@@ -119,7 +133,6 @@ function selecterView(){
             for (let i = 0; i < selectorButtons.length; i++){
                 let selectorButton = selectorButtons[i]
                 let index = i
-                let id = selectorButton.classList
     
                 if (carouselList.get(`${id}`).selectedItem == index){
                     selectorButton.style.aspectRatio = "2/1"
@@ -127,6 +140,14 @@ function selecterView(){
                     selectorButton.style.aspectRatio = "1/1"
                 }
             }
+        }
+        let classIndex = carouselList.get(`${id}`).selectedItem
+
+        if (classIndex !== removeIndexClass){
+            carouselSection.classList.remove(`index${removeIndexClass}`)
+            carouselSection.classList.add(`index${classIndex}`)
+            switchBackground(carouselSection)
+            removeIndexClass = classIndex
         }
     }
 }

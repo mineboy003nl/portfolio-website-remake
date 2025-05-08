@@ -94,7 +94,7 @@ nav.head i::before{
     height: 5px;
     background-color: var(--y_500);
     position: absolute;
-    bottom: -5px;
+    top: 100%;
     left: 0;
     border-radius: 999px;
     transition: 0.3s ease-in-out;
@@ -129,7 +129,7 @@ nav.head i::before{
     color: var(--y_50);
 }
 
-.logo{
+.navItem.me{
     margin-left: auto;
 }
 
@@ -250,8 +250,58 @@ section.carousel{
     justify-content: center;
     align-items: center;
     gap: 35%;
+    transition: 1s ease-in-out;
 
-    background-image: url(media/test/achtergrond.webp);
+    /* background-image: url(media/test/achtergrond.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+.carousel::Before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: darkblue;
+    z-index: 1;
+    background-image: none;
+}
+
+.carousel::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: chocolate;
+    z-index: 1;
+    background-image: none;
+}
+
+.carousel.after::before{
+    opacity: 0%;
+    transition: 0.3s ease-in-out;
+}
+
+.carousel.before::after{
+    opacity: 0%;
+    transition: 0.3s ease-in-out;
+}
+
+.carousel.before::before{
+    opacity: 100%;
+    transition: 0.3s ease-in-out;
+}
+
+.carousel.after::after{
+    opacity: 100%;
+    transition: 0.3s ease-in-out;
 }
 
 .carouselContainer{
@@ -262,6 +312,7 @@ section.carousel{
     left: 50%;
     transform: translate(-50%, -50%);
     overflow-x: hidden;
+    z-index: 2;
 }
 
 .carouselContainer .carouselItem{
@@ -287,6 +338,7 @@ section.carousel{
     color: var(--g_800);
     opacity: 30%;
     transition: 0.2s ease-in-out;
+    z-index: 2;
 }
 
 .carousel button:hover{
@@ -308,6 +360,7 @@ section.carousel{
     opacity: 30%;
     background-color: var(--g_100);
     transition: 0.2s ease-in-out;
+    z-index: 2;
 }
 
 .carousel nav.selector:hover{
@@ -324,3 +377,24 @@ section.carousel{
 .carousel nav.selector button:hover{
     background-color: var(--g_600);
 }
+
+/* .aaaa.before.index2::before, .aaaa.after.index2::after{
+    background-image: url(media/test/achtergrond.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.aaaa.before.index3::before, .aaaa.after.index3::after{
+    background-image: url(media/test/turtle.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.aaaa.before.index4::before, .aaaa.after.index4::after{
+    background-image: url(media/test/windows\ xp.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} */

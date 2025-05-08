@@ -38,7 +38,7 @@
                 <a href="https://www.minecraft.net/nl-nl">optie 5</a>
             </div>
         </div>
-        <div class="navItem logo">
+        <div class="navItem me">
             <span>Jelmer</span>
             <span class="long">Huizenga</span>
             <div class="logoBoxCircle">
@@ -73,14 +73,15 @@
         </a>
     </nav>
 
-    <section class="carousel">
-        <button onclick="carouselList.get('aaaa').plus()"><i class="bi bi-arrow-bar-left"></i></button>
+    <section class="carousel aaaa">
+        <button onclick="carouselList.get('aaaa').min(); selecterView()"><i class="bi bi-arrow-bar-left"></i></button>
         <nav class="selector">
-            <button onclick="carouselList.get('aaaa').set(0); selecterView()" class="aaaa"></button>
-            <button onclick="carouselList.get('aaaa').set(1); selecterView()" class="aaaa"></button>
-            <button onclick="carouselList.get('aaaa').set(2); selecterView()" class="aaaa"></button>
-            <button onclick="carouselList.get('aaaa').set(3); selecterView()" class="aaaa"></button>
-            <button onclick="carouselList.get('aaaa').set(4); selecterView()" class="aaaa"></button>
+            <button onclick="carouselList.get('aaaa').set(0); selecterView()"></button>
+            <button onclick="carouselList.get('aaaa').set(1); selecterView()"></button>
+            <button onclick="carouselList.get('aaaa').set(2); selecterView()"></button>
+            <button onclick="carouselList.get('aaaa').set(3); selecterView()"></button>
+            <button onclick="carouselList.get('aaaa').set(4); selecterView()"></button>
+            <button onclick="carouselList.get('aaaa').set(5); selecterView()"></button>
         </nav>
         <div class="carouselContainer" id="aaaa">
             <div class="carouselItem">
@@ -98,8 +99,11 @@
             <div class="carouselItem">
 
             </div>
+            <div class="carouselItem">
+
+            </div>
         </div>
-        <button onclick="carouselList.get('aaaa').min()"><i class="bi bi-arrow-bar-right"></i></button>
+        <button onclick="carouselList.get('aaaa').plus(); selecterView()"><i class="bi bi-arrow-bar-right"></i></button>
     </section>
 
 </body>
